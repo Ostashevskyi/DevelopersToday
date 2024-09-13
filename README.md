@@ -1,24 +1,47 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+- [Running the Project Locally](#running-the-project-locally)
+- [Running the Project with Docker](#running-the-project-with-docker)
+- [Scripts](#scripts)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Running the Project Locally
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the project locally, follow these steps:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the Repository**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/Ostashevskyi/DevelopersToday.git
+   cd DevelopersTodat
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the Development Server**:
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser and go to**:
+   ```bash
+   http://localhost:3000
+   ```
+
+## Scripts
+
+Here are the available npm scripts:
+
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the app for production.
+- `npm run preview`: Preview the production build locally.
+- `npm run lint`: Run the linter on your code.
 
 ## Learn More
 
