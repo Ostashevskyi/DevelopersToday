@@ -1,5 +1,6 @@
-import { CarInfo } from "@/app/result/[makeId]/[year]/page";
-import React from "react";
+import React from 'react';
+
+import { CarInfo } from '@/types/CarInfo';
 
 const CarResultCard = ({ car }: { car: CarInfo }) => {
   return (

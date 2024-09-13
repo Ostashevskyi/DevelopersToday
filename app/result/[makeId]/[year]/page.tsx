@@ -1,19 +1,23 @@
-import Loading from '@/components/Loading';
-import CarResultCard from '@/components/ResultCard';
+import React from 'react';
+
 import { YEARS_ARRAY } from '@/constants/yearsArray';
-import React, { Suspense } from 'react';
 
-type CarsFetchInfoParams = {
-  Make_ID: number | null;
-  Make_Name: string;
-};
+import { CarInfo } from '@/types/CarInfo';
+import { CarsFetchInfo } from '@/types/CarsFetchInfo';
 
-export type CarInfo = {
-  Make_ID: number;
-  Make_Name: string;
-  Model_ID: number;
-  Model_Name: string;
-};
+import CarResultCard from '@/components/ResultCard';
+import { notFound } from 'next/navigation';
+
+export async function generateMetadata({
+  params: { makeId },
+}: {
+  params: { makeId: string };
+}) {
+  return {
+    title: `Car ID ${makeId}`,
+    description: `Information about car with ID ${makeId}`,
+  };
+}
 
 export const generateStaticParams = async () => {
   try {
@@ -26,20 +30,18 @@ export const generateStaticParams = async () => {
     }
 
     const models = await modelsData.json();
-    const result: CarsFetchInfoParams[] = models.Results;
+    const result: CarsFetchInfo[] = models.Results;
 
-    return result.flatMap((page) =>
+    return result.flatMap((data) =>
       YEARS_ARRAY.map((year) => {
-        const makeID = page.Make_ID ? page.Make_ID.toString() : 'unknown';
         return {
-          makeID,
+          makeId: data.MakeId.toString(),
           year: year.toString(),
         };
       })
     );
   } catch (error) {
-    console.log(error);
-    return [];
+    notFound();
   }
 };
 
@@ -65,7 +67,7 @@ const ResultPage = async ({
       <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
         Results
       </h1>
-      {!!results.length ? (
+      {results.length ? (
         <div className="flex gap-4 items-center justify-center w-full flex-wrap">
           {results.map((car) => (
             <CarResultCard key={car.Model_ID} car={car} />
