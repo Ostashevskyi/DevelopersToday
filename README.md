@@ -3,8 +3,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Table of Contents
 
 - [Running the Project Locally](#running-the-project-locally)
-- [Running the Project with Docker](#running-the-project-with-docker)
 - [Scripts](#scripts)
+- [Learn More](#learn-more)
+- [Deploy on Vercel](#deploy-on-vercel)
 
 ## Running the Project Locally
 
@@ -14,7 +15,7 @@ To run the project locally, follow these steps:
 
    ```bash
    git clone https://github.com/Ostashevskyi/DevelopersToday.git
-   cd DevelopersTodat
+   cd DevelopersToday
    ```
 
 2. **Install Dependencies**:
